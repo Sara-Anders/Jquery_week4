@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Quiz with Jquery</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <!-- Load jQuery JavaScript file to use the shared library and $ function -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  </head>
+  <style>
+    
+    .button{
+      background-color: pink;
+      border: solid;
+      color: black;
+      padding: 5px 10px;
+      border-radius: 12px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 3px;
+      cursor: help;
+    }
+
+    .box{
+      padding: 5px;
+      border-radius: 12px;
+    }
+
+    .spacer{
+      padding: 10px;
+    }
+  </style>
+  <body>
+    <h1>Quiz of Quizzes</h1>
+
+    <h4 id="turns">
+      Turn:
+    </h4>
+    
+    <h3 id="question"></h3>
+    
+    <div id="answers"></div>
+    
+    <div id="buzzer"></div>
+    
+    <div id="ding"></div>
+
+    <div>
+  Your Score:
+  <p id= "score"></p>
+    </div>
+    
+ <script src="script.js"></script>
+  </body>
+</html>
