@@ -7,19 +7,19 @@
        {
          question: "What goes in between () in Javascript?",
          answers: ["parameter" , "placeholder" , "number" , "joke"],
-         correct choice:0
-       }
+         correct_choice:0
+       },
 
       {
          question: "What gives you only true or false values",
          answers: ["switch" , "function" , "boolean" , "class"],
-         correct choice:2
-      }
+         correct_choice:2
+      },
 
       {
-         question: "What do you inclose a function with?",
-         answers: [":" , "{}" , "[]" , "$"],
-         correct choice:1
+         question: "What goes after function()?",
+         answers: [";" , "{}" , "[]" , "$"],
+         correct_choice:1
        }
        
      ];
@@ -30,12 +30,14 @@ var turn= 0;
 //var for score
 var point = 0;
 
-//After page load show question show score
+//After page load show question and show score
+console.log("yup");
 showQuestion();
-keepScore();
+
 
 //showQuestion with current answers
-function showQuestion(){
+console.log("hello");
+function showQuestion() {
   //set counter
   $('#turns').text(turn + 1);
 
@@ -43,12 +45,20 @@ function showQuestion(){
   $('#question').text( info[turn].question );
 
   //provide buttons for answers
-  $('#ding').empty();
+  $('#answers').empty();
+
+  
 
   for ( let index in info[turn].answers ){
     // make button and set text to answer text 
-    var button = $("<button>");
-    button.text( info[turn].answer[index] );
+    let button = $("<button>");
+    button.text( info[turn].answers[index] );
+    
+      if(index == info[turn].correct_choice){
+        console.log(index);
+          button.click(keepScore); 
+      };
+    $('#answers').append(button);
   }
 }
 
@@ -65,10 +75,25 @@ function showQuestion(){
 */
 
 function keepScore(){
-  if $('#answers').value === answers[turn] {
+  
+  //do I need a jquery var to check answers and add score?
+  //does it make sense with #answers in so many places...is that the right one to add?
+  // var myAnswer = $("#answers").val();
+  //if ('#ding') {
+   // myAnswer === info[turn].correct_choice;
     point += 5;
-    $('#score').text = point;
-  }else{
-    $('#score').text = point;
-  }
+    console.log(point);
+    $('#score').text(point);
+    turn ++ 
+    if( turn < info.length){
+         showQuestion();
+    }else{
+      $("#ding").text("All Done!"); 
+    }
+
+   
+
+ // }else{
+   // $('#score').text = point;
+ // }
 }
